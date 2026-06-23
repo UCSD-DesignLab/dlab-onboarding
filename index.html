@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to the Design Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-bg: #ffffff;
+      --color-bg-secondary: #f5f5f2;
+      --color-text-primary: #1a1a18;
+      --color-text-secondary: #5f5e5a;
+      --color-border: rgba(0,0,0,0.12);
+      --color-border-hover: rgba(0,0,0,0.25);
+      --color-teal-bg: #E1F5EE;
+      --color-teal-text: #0F6E56;
+      --color-teal-mid: #1D9E75;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #1c1c1a;
+        --color-bg-secondary: #252523;
+        --color-text-primary: #f0efe8;
+        --color-text-secondary: #a8a7a0;
+        --color-border: rgba(255,255,255,0.1);
+        --color-border-hover: rgba(255,255,255,0.22);
+        --color-teal-bg: #04342C;
+        --color-teal-text: #9FE1CB;
+        --color-teal-mid: #5DCAA5;
+      }
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+    }
+
+    .site-header {
+      border-bottom: 0.5px solid var(--color-border);
+      padding: 0 2rem;
+    }
+
+    .site-header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 56px;
+      gap: 10px;
+    }
+
+    .site-header-inner span {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+
+    .site-header-inner .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-teal-mid);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .hero {
+      padding-bottom: 2.5rem;
+      border-bottom: 0.5px solid var(--color-border);
+      margin-bottom: 2.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: var(--radius-md);
+      background: var(--color-teal-bg);
+      color: var(--color-teal-text);
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      max-width: 540px;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      padding-bottom: 8px;
+      border-bottom: 0.5px solid var(--color-border);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .info-box {
+      background: var(--color-bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+
+    .info-box h3 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .info-box p {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      background: var(--color-bg);
+      border: 0.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color 0.15s;
+    }
+
+    .card:hover {
+      border-color: var(--color-border-hover);
+    }
+
+    .card-icon {
+      font-size: 20px;
+      color: var(--color-text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--color-teal-text);
+      margin-top: 10px;
+      text-decoration: none;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .checklist {
+      list-style: none;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 0.5px solid var(--color-border);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .checklist li:last-child {
+      border-bottom: none;
+    }
+
+    .check-icon {
+      color: var(--color-teal-mid);
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .contact-list {
+      border: 0.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-bottom: 0.5px solid var(--color-border);
+    }
+
+    .contact-row:last-child {
+      border-bottom: none;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--color-teal-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-teal-text);
+      flex-shrink: 0;
+    }
+
+    .contact-name {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .contact-role {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 2rem 1.25rem 4rem; }
+      .hero h1 { font-size: 24px; }
+      .site-header { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="dot"></div>
+    <span>UCSD Design Lab</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <span class="badge">New member guide</span>
+    <h1>Welcome to the Design Lab</h1>
+    <p>A quick-start resource for new staff, graduate students, and faculty. Find what you need, know who to ask, and get oriented fast.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-title">About the Design Lab</p>
+    <div class="two-col">
+      <div class="info-box">
+        <h3>Who we are</h3>
+        <p>An academic unit within the University of California San Diego, with 8 staff, 58 faculty members, graduate students, and undergrads. The Design Lab brings together researchers, educators, and practitioners to advance the field of design.</p>
+      </div>
+      <div class="info-box">
+        <h3>What's new</h3>
+        <p>We've launched a new <strong style="font-weight:500">Master in Design program</strong>, bringing a wave of new students, staff, and faculty into the lab. This guide is here to help you find your footing quickly.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Key resources</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-file-text" aria-hidden="true"></i></div>
+        <div class="card-title">New employee guidebook</div>
+        <div class="card-desc">The full reference guide for joining the Design Lab.</div>
+        <a class="card-link" href="https://docs.google.com/document/d/1tOGEINQs-T0CkWzSOqmIAfR5NeES1aDAtk1niqNIH7g/edit" target="_blank" rel="noopener">
+          <i class="ti ti-external-link" aria-hidden="true"></i> Open in Drive
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-checkbox" aria-hidden="true"></i></div>
+        <div class="card-title">Onboarding checklist</div>
+        <div class="card-desc">Your to-do list for the first days and weeks.</div>
+        <a class="card-link" href="https://docs.google.com/spreadsheets/d/1gJAhwiVs101sD2cfFs9Zu5XZyKE-xVnSDHsF9sWwtIs/edit" target="_blank" rel="noopener">
+          <i class="ti ti-external-link" aria-hidden="true"></i> Open in Drive
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-presentation" aria-hidden="true"></i></div>
+        <div class="card-title">Onboarding deck</div>
+        <div class="card-desc">Slide overview of the lab — a great first read.</div>
+        <a class="card-link" href="https://docs.google.com/presentation/d/1pW1iCPNiRYLwd3EfJ8JpZJXB3dUZjBXKQmRT2hK8oxw/edit" target="_blank" rel="noopener">
+          <i class="ti ti-external-link" aria-hidden="true"></i> Open in Drive
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-folder" aria-hidden="true"></i></div>
+        <div class="card-title">Operations drive</div>
+        <div class="card-desc">Central hub for all operations documents and resources.</div>
+        <a class="card-link" href="#" target="_blank" rel="noopener">
+          <i class="ti ti-external-link" aria-hidden="true"></i> Open in Drive
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Day one checklist</p>
+    <ul class="checklist">
+      <li><i class="ti ti-circle-check check-icon" aria-hidden="true"></i> Review the new employee guidebook</li>
+      <li><i class="ti ti-circle-check check-icon" aria-hidden="true"></i> Complete your onboarding checklist</li>
+      <li><i class="ti ti-circle-check check-icon" aria-hidden="true"></i> Get printer access — ask the operations team</li>
+      <li><i class="ti ti-circle-check check-icon" aria-hidden="true"></i> Set up workstation equipment (see IT/AV for checkout form)</li>
+      <li><i class="ti ti-circle-check check-icon" aria-hidden="true"></i> Confirm building access and key assignment (Space Management)</li>
+      <li><i class="ti ti-circle-check check-icon" aria-hidden="true"></i> Review the shared drive access best practices doc</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Find what you need</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-device-laptop" aria-hidden="true"></i></div>
+        <div class="card-title">IT & AV</div>
+        <div class="card-desc">Equipment checkout, tech inventory, software licenses, accounts.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-building" aria-hidden="true"></i></div>
+        <div class="card-title">Space management</div>
+        <div class="card-desc">Office assignments, room reservations, keys, and floor plans.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-receipt" aria-hidden="true"></i></div>
+        <div class="card-title">Finance</div>
+        <div class="card-desc">Expenses, reimbursements, purchase orders, grants, and budgets.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-calendar-event" aria-hidden="true"></i></div>
+        <div class="card-title">Policies</div>
+        <div class="card-desc">Holiday schedule, flexible work policy, visitor expectations.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+        <div class="card-title">Wellness</div>
+        <div class="card-desc">Employee wellness resources and programs.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+        <div class="card-title">All staff resources</div>
+        <div class="card-desc">Communications, templates, professional development, and more.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Who to talk to</p>
+    <div class="contact-list">
+      <div class="contact-row">
+        <div class="avatar">MM</div>
+        <div>
+          <div class="contact-name">Megan MacLean</div>
+          <div class="contact-role">Operations — your first stop for most questions</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="avatar">MN</div>
+        <div>
+          <div class="contact-name">Mai Thi Nguyen</div>
+          <div class="contact-role">Director</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="avatar">MC</div>
+        <div>
+          <div class="contact-name">Maria Fernanda Currea</div>
+          <div class="contact-role">Communications</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="avatar"><i class="ti ti-device-laptop" style="font-size:15px" aria-hidden="true"></i></div>
+        <div>
+          <div class="contact-name">IT / AV support</div>
+          <div class="contact-role">Equipment, tech setup, and software access</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>
