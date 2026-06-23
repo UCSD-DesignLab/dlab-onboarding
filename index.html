@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to the Design Lab — Onboarding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <script>
     (function() {
       var correct = "dlab2026";
@@ -17,128 +22,167 @@
       }
     })();
   </script>
-  <title>Welcome to the Design Lab</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --color-bg: #ffffff;
-      --color-bg-secondary: #f5f5f2;
-      --color-text-primary: #1a1a18;
-      --color-text-secondary: #5f5e5a;
-      --color-border: rgba(0,0,0,0.12);
-      --color-border-hover: rgba(0,0,0,0.25);
-      --color-teal-bg: #E1F5EE;
-      --color-teal-text: #0F6E56;
-      --color-teal-mid: #1D9E75;
-      --radius-md: 8px;
-      --radius-lg: 12px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --color-bg: #1c1c1a;
-        --color-bg-secondary: #252523;
-        --color-text-primary: #f0efe8;
-        --color-text-secondary: #a8a7a0;
-        --color-border: rgba(255,255,255,0.1);
-        --color-border-hover: rgba(255,255,255,0.22);
-        --color-teal-bg: #04342C;
-        --color-teal-text: #9FE1CB;
-        --color-teal-mid: #5DCAA5;
-      }
+      --navy: #182B49;
+      --gold: #C69214;
+      --charcoal: #2d2d2d;
+      --light-gray: #f4f4f2;
+      --mid-gray: #e8e8e4;
+      --text: #1a1a18;
+      --text-muted: #5a5a56;
+      --teal: #0F6E56;
+      --teal-light: #E1F5EE;
+      --border: rgba(0,0,0,0.1);
+      --radius: 8px;
     }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
       font-size: 16px;
-      line-height: 1.7;
-      color: var(--color-text-primary);
-      background: var(--color-bg);
+      line-height: 1.6;
+      color: var(--text);
+      background: #fff;
     }
 
-    .site-header {
-      border-bottom: 0.5px solid var(--color-border);
+    /* ── Top nav ── */
+    .top-nav {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
       padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    .site-header-inner {
-      max-width: 900px;
+    .top-nav-inner {
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       height: 56px;
-      gap: 10px;
     }
 
-    .site-header-inner span {
-      font-size: 14px;
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      text-decoration: none;
+    }
+
+    .nav-logo .ucsd { font-size: 15px; font-weight: 700; color: var(--navy); }
+    .nav-logo .lab { font-size: 11px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
+
+    .nav-links { display: flex; gap: 0; }
+
+    .nav-links a {
+      font-size: 13px;
       font-weight: 500;
-      color: var(--color-text-primary);
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0 14px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
     }
 
-    .site-header-inner .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--color-teal-mid);
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--navy); border-bottom-color: var(--navy); }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--charcoal);
+      color: #fff;
+      padding: 4rem 2rem 3.5rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    main {
-      max-width: 900px;
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(24,43,73,0.7) 0%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-breadcrumb {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero-breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: #fff; }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      max-width: 560px;
+      font-style: italic;
+    }
+
+    /* ── Logo bar ── */
+    .logo-bar {
+      background: var(--light-gray);
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--mid-gray);
+    }
+
+    .logo-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-bar .ucsd-logo { font-size: 20px; font-weight: 700; color: var(--navy); }
+    .logo-bar .ucsd-logo span { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); border-top: 2px solid var(--gold); padding-top: 3px; margin-top: 2px; }
+
+    /* ── Main layout ── */
+    .page-body {
+      max-width: 1100px;
       margin: 0 auto;
       padding: 3rem 2rem 5rem;
     }
 
-    .hero {
-      padding-bottom: 2.5rem;
-      border-bottom: 0.5px solid var(--color-border);
-      margin-bottom: 2.5rem;
-    }
-
-    .badge {
-      display: inline-block;
+    /* ── Section title ── */
+    .section-label {
       font-size: 11px;
       font-weight: 500;
-      padding: 3px 10px;
-      border-radius: var(--radius-md);
-      background: var(--color-teal-bg);
-      color: var(--color-teal-text);
-      margin-bottom: 14px;
-    }
-
-    .hero h1 {
-      font-size: 32px;
-      font-weight: 500;
-      line-height: 1.25;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 16px;
-      color: var(--color-text-secondary);
-      max-width: 540px;
-    }
-
-    .section {
-      margin-bottom: 3rem;
-    }
-
-    .section-title {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--color-text-secondary);
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-bottom: 1rem;
       padding-bottom: 8px;
-      border-bottom: 0.5px solid var(--color-border);
+      border-bottom: 1px solid var(--mid-gray);
     }
 
+    .section { margin-bottom: 3rem; }
+
+    /* ── About cards ── */
     .two-col {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -146,23 +190,66 @@
     }
 
     .info-box {
-      background: var(--color-bg-secondary);
-      border-radius: var(--radius-lg);
+      background: var(--light-gray);
+      border-radius: var(--radius);
       padding: 1.25rem;
     }
 
-    .info-box h3 {
+    .info-box h3 { font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+    .info-box p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── Section nav cards (Ops / Comms style) ── */
+    .section-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .section-card {
+      border: 1px solid var(--mid-gray);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: box-shadow 0.15s;
+    }
+
+    .section-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+
+    .section-card-img {
+      height: 140px;
+      background: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .section-card-img.ops { background: #1a2a3a; }
+    .section-card-img.onboarding { background: #0a3028; }
+    .section-card-img.comms { background: #1a1a2e; }
+    .section-card-img.spaces { background: #2a1a0a; }
+
+    .section-card-body { padding: 1rem 1.1rem; }
+
+    .section-card-title {
       font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--navy);
+      margin-bottom: 6px;
     }
 
-    .info-box p {
-      font-size: 14px;
-      color: var(--color-text-secondary);
-      line-height: 1.6;
+    .section-card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
     }
 
+    /* ── Resource cards ── */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -170,9 +257,9 @@
     }
 
     .card {
-      background: var(--color-bg);
-      border: 0.5px solid var(--color-border);
-      border-radius: var(--radius-lg);
+      background: #fff;
+      border: 1px solid var(--mid-gray);
+      border-radius: var(--radius);
       padding: 1rem 1.1rem;
       text-decoration: none;
       color: inherit;
@@ -180,150 +267,142 @@
       transition: border-color 0.15s;
     }
 
-    .card:hover {
-      border-color: var(--color-border-hover);
+    .card:hover { border-color: #aaa; }
+    .card-icon { font-size: 20px; color: var(--text-muted); margin-bottom: 10px; }
+    .card-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .card-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    .card-link { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--teal); margin-top: 10px; text-decoration: none; }
+    .card-link:hover { text-decoration: underline; }
+
+    /* ── Checklist ── */
+    .checklist { list-style: none; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--mid-gray); font-size: 14px; line-height: 1.5; }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon { color: var(--teal); font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Contacts ── */
+    .contact-list { border: 1px solid var(--mid-gray); border-radius: var(--radius); overflow: hidden; }
+    .contact-row { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-bottom: 1px solid var(--mid-gray); }
+    .contact-row:last-child { border-bottom: none; }
+    .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--teal-light); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: var(--teal); flex-shrink: 0; }
+    .contact-name { font-size: 14px; font-weight: 500; }
+    .contact-role { font-size: 12px; color: var(--text-muted); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      padding: 2rem;
+      font-size: 13px;
+      text-align: center;
     }
 
-    .card-icon {
-      font-size: 20px;
-      color: var(--color-text-secondary);
-      margin-bottom: 10px;
-    }
+    footer strong { color: #fff; }
 
-    .card-title {
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .card-desc {
-      font-size: 12px;
-      color: var(--color-text-secondary);
-      line-height: 1.5;
-    }
-
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11px;
-      color: var(--color-teal-text);
-      margin-top: 10px;
-      text-decoration: none;
-    }
-
-    .card-link:hover {
-      text-decoration: underline;
-    }
-
-    .checklist {
-      list-style: none;
-    }
-
-    .checklist li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 0;
-      border-bottom: 0.5px solid var(--color-border);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .checklist li:last-child {
-      border-bottom: none;
-    }
-
-    .check-icon {
-      color: var(--color-teal-mid);
-      font-size: 18px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .contact-list {
-      border: 0.5px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 16px;
-      border-bottom: 0.5px solid var(--color-border);
-    }
-
-    .contact-row:last-child {
-      border-bottom: none;
-    }
-
-    .avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--color-teal-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--color-teal-text);
-      flex-shrink: 0;
-    }
-
-    .contact-name {
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .contact-role {
-      font-size: 12px;
-      color: var(--color-text-secondary);
-    }
+    /* ── Divider ── */
+    .divider { border: none; border-top: 1px solid var(--mid-gray); margin: 0 0 3rem; }
 
     @media (max-width: 600px) {
-      main { padding: 2rem 1.25rem 4rem; }
-      .hero h1 { font-size: 24px; }
-      .site-header { padding: 0 1.25rem; }
+      .page-body { padding: 2rem 1.25rem 4rem; }
+      .hero { padding: 2.5rem 1.25rem; }
+      .hero h1 { font-size: 28px; }
+      .top-nav { padding: 0 1.25rem; }
+      .nav-links a { padding: 0 8px; font-size: 12px; }
     }
   </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="site-header-inner">
-    <div class="dot"></div>
-    <span>UCSD Design Lab</span>
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a class="nav-logo" href="#">
+      <span class="ucsd">UC San Diego</span>
+      <span class="lab">The Design Lab</span>
+    </a>
+    <div class="nav-links">
+      <a href="#">Ops &amp; Comms Home</a>
+      <a href="#operations" class="active">Operations</a>
+      <a href="#comms">Communications</a>
+    </div>
   </div>
-</header>
+</nav>
 
-<main>
-
-  <div class="hero">
-    <span class="badge">New member guide</span>
-    <h1>Welcome to the Design Lab</h1>
-    <p>A quick-start resource for new staff, graduate students, and faculty. Find what you need, know who to ask, and get oriented fast.</p>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-breadcrumb">
+      <a href="#">Ops &amp; Comms Home</a> &nbsp;›&nbsp; Operations
+    </div>
+    <h1>Operations</h1>
+    <p>This website is intended as a resource for Design Lab Members only. Permissions are strictly controlled.</p>
   </div>
+</div>
+
+<div class="logo-bar">
+  <div class="logo-bar-inner">
+    <div class="ucsd-logo">
+      UC San Diego
+      <span>The Design Lab</span>
+    </div>
+  </div>
+</div>
+
+<main class="page-body">
 
   <div class="section">
-    <p class="section-title">About the Design Lab</p>
+    <p class="section-label">About the Design Lab</p>
     <div class="two-col">
       <div class="info-box">
         <h3>Who we are</h3>
-        <p>An academic unit within the University of California San Diego, with 8 staff, 58 faculty members, graduate students, and undergrads. The Design Lab brings together researchers, educators, and practitioners to advance the field of design.</p>
+        <p>An academic unit within the University of California San Diego, with 8 staff, 58 faculty members, graduate students, and undergrads bringing together researchers, educators, and practitioners to advance the field of design.</p>
       </div>
       <div class="info-box">
         <h3>What's new</h3>
-        <p>We've launched a new <strong style="font-weight:500">Master in Design program</strong>, bringing a wave of new students, staff, and faculty into the lab. This guide is here to help you find your footing quickly.</p>
+        <p>We've launched a new <strong style="font-weight:500">Master in Design program</strong>, bringing a wave of new students, staff, and faculty into the lab. Use the resources below to get oriented quickly.</p>
       </div>
     </div>
   </div>
 
-  <div class="section">
-    <p class="section-title">Key resources</p>
-    <div class="card-grid">
+  <div class="section" id="operations">
+    <p class="section-label">Operations</p>
+    <div class="section-cards">
+      <a class="section-card" href="#onboarding">
+        <div class="section-card-img onboarding"><i class="ti ti-door-enter" aria-hidden="true"></i></div>
+        <div class="section-card-body">
+          <div class="section-card-title">Onboarding</div>
+          <div class="section-card-desc">New member guide — resources, contacts, and your day-one checklist.</div>
+        </div>
+      </a>
+      <a class="section-card" href="#resources">
+        <div class="section-card-img ops"><i class="ti ti-settings" aria-hidden="true"></i></div>
+        <div class="section-card-body">
+          <div class="section-card-title">Ops Resources</div>
+          <div class="section-card-desc">Contacts, policies, guidelines, forms, FAQs, and how-tos.</div>
+        </div>
+      </a>
+      <a class="section-card" href="#spaces">
+        <div class="section-card-img spaces"><i class="ti ti-building" aria-hidden="true"></i></div>
+        <div class="section-card-body">
+          <div class="section-card-title">Space Management</div>
+          <div class="section-card-desc">Office assignments, room reservations, keys, and floor plans.</div>
+        </div>
+      </a>
+      <a class="section-card" href="#comms">
+        <div class="section-card-img comms"><i class="ti ti-speakerphone" aria-hidden="true"></i></div>
+        <div class="section-card-body">
+          <div class="section-card-title">Communications</div>
+          <div class="section-card-desc">Contacts, policies, channels, logos, and how-tos.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ── ONBOARDING (nested) ── -->
+  <div class="section" id="onboarding">
+    <p class="section-label">Onboarding — new member guide</p>
+
+    <div class="card-grid" style="margin-bottom: 2rem;">
       <div class="card">
         <div class="card-icon"><i class="ti ti-file-text" aria-hidden="true"></i></div>
         <div class="card-title">New employee guidebook</div>
@@ -357,11 +436,9 @@
         </a>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <p class="section-title">Day one checklist</p>
-    <ul class="checklist">
+    <p class="section-label">Day one checklist</p>
+    <ul class="checklist" style="margin-bottom: 2rem;">
       <li><i class="ti ti-circle-check check-icon" aria-hidden="true"></i> Review the new employee guidebook</li>
       <li><i class="ti ti-circle-check check-icon" aria-hidden="true"></i> Complete your onboarding checklist</li>
       <li><i class="ti ti-circle-check check-icon" aria-hidden="true"></i> Get printer access — ask the operations team</li>
@@ -369,20 +446,37 @@
       <li><i class="ti ti-circle-check check-icon" aria-hidden="true"></i> Confirm building access and key assignment (Space Management)</li>
       <li><i class="ti ti-circle-check check-icon" aria-hidden="true"></i> Review the shared drive access best practices doc</li>
     </ul>
+
+    <p class="section-label">Who to talk to</p>
+    <div class="contact-list">
+      <div class="contact-row">
+        <div class="avatar">MM</div>
+        <div><div class="contact-name">Megan MacLean</div><div class="contact-role">Operations — your first stop for most questions</div></div>
+      </div>
+      <div class="contact-row">
+        <div class="avatar">MN</div>
+        <div><div class="contact-name">Mai Thi Nguyen</div><div class="contact-role">Director</div></div>
+      </div>
+      <div class="contact-row">
+        <div class="avatar">MC</div>
+        <div><div class="contact-name">Maria Fernanda Currea</div><div class="contact-role">Communications</div></div>
+      </div>
+      <div class="contact-row">
+        <div class="avatar"><i class="ti ti-device-laptop" style="font-size:15px" aria-hidden="true"></i></div>
+        <div><div class="contact-name">IT / AV support</div><div class="contact-role">Equipment, tech setup, and software access</div></div>
+      </div>
+    </div>
   </div>
 
-  <div class="section">
-    <p class="section-title">Find what you need</p>
+  <hr class="divider" />
+
+  <div class="section" id="resources">
+    <p class="section-label">Ops resources</p>
     <div class="card-grid">
       <div class="card">
         <div class="card-icon"><i class="ti ti-device-laptop" aria-hidden="true"></i></div>
-        <div class="card-title">IT & AV</div>
+        <div class="card-title">IT &amp; AV</div>
         <div class="card-desc">Equipment checkout, tech inventory, software licenses, accounts.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="ti ti-building" aria-hidden="true"></i></div>
-        <div class="card-title">Space management</div>
-        <div class="card-desc">Office assignments, room reservations, keys, and floor plans.</div>
       </div>
       <div class="card">
         <div class="card-icon"><i class="ti ti-receipt" aria-hidden="true"></i></div>
@@ -399,49 +493,15 @@
         <div class="card-title">Wellness</div>
         <div class="card-desc">Employee wellness resources and programs.</div>
       </div>
-      <div class="card">
-        <div class="card-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
-        <div class="card-title">All staff resources</div>
-        <div class="card-desc">Communications, templates, professional development, and more.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <p class="section-title">Who to talk to</p>
-    <div class="contact-list">
-      <div class="contact-row">
-        <div class="avatar">MM</div>
-        <div>
-          <div class="contact-name">Megan MacLean</div>
-          <div class="contact-role">Operations — your first stop for most questions</div>
-        </div>
-      </div>
-      <div class="contact-row">
-        <div class="avatar">MN</div>
-        <div>
-          <div class="contact-name">Mai Thi Nguyen</div>
-          <div class="contact-role">Director</div>
-        </div>
-      </div>
-      <div class="contact-row">
-        <div class="avatar">MC</div>
-        <div>
-          <div class="contact-name">Maria Fernanda Currea</div>
-          <div class="contact-role">Communications</div>
-        </div>
-      </div>
-      <div class="contact-row">
-        <div class="avatar"><i class="ti ti-device-laptop" style="font-size:15px" aria-hidden="true"></i></div>
-        <div>
-          <div class="contact-name">IT / AV support</div>
-          <div class="contact-role">Equipment, tech setup, and software access</div>
-        </div>
-      </div>
     </div>
   </div>
 
 </main>
+
+<footer>
+  <strong>UC San Diego — The Design Lab</strong><br />
+  For internal use only. Design Lab members only.
+</footer>
 
 </body>
 </html>
