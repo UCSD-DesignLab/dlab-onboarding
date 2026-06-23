@@ -3,6 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function() {
+      var correct = "dlab2026";
+      var stored = sessionStorage.getItem("dlab_auth");
+      if (stored !== correct) {
+        var input = prompt("Enter password to access this site:");
+        if (input !== correct) {
+          document.documentElement.innerHTML = "<div style='font-family:sans-serif;padding:3rem;color:#333'><p>Incorrect password.</p></div>";
+          throw new Error("Unauthorized");
+        }
+        sessionStorage.setItem("dlab_auth", correct);
+      }
+    })();
+  </script>
   <title>Welcome to the Design Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
